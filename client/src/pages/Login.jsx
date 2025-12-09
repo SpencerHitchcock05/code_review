@@ -40,7 +40,7 @@ function Login() {
         navigate("/");
       } else if (responseStatus == 401) {
         setError("Invalid username or password.");
-      } else if (responseStatus == 500) {
+      } else {
         setError("An error occurred during login. Please try again later.");
       }
     } else {
@@ -98,7 +98,7 @@ function Login() {
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
-                className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+                className="w-full px-4 py-2 text-text-color border border-white rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required

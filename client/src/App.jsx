@@ -1,4 +1,4 @@
-import { RouterProvider } from 'react-router-dom'
+import { RouterProvider, Navigate } from 'react-router-dom'
 import './css/App.css';
 import { UserProvider, UserContext } from './context/userContext.jsx';
 import { createBrowserRouter, useLoaderData } from "react-router-dom";
@@ -9,11 +9,21 @@ import { useContext, useEffect } from 'react';
 
 const AuthRedirector = ({ children }) => {
   const authed = useLoaderData();
+  if (!authed) {
+  
+  }
+
   const { setUser } = useContext(UserContext);
   
   useEffect(() => {
-    setUser(authed)
-  }, [])
+    if (authed) {
+      setUser(authed)
+    }
+  }, [authed, setUser])
+
+  if (!authed) {
+    return <Navigate to="/login" replace />;
+  }
 
   return children;
 };
