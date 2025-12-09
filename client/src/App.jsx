@@ -6,12 +6,10 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import { useAuthHook } from "./hooks/useAuthHook.js";
 import { useContext, useEffect } from 'react';
+import Projects from './pages/Projects.jsx';
 
 const AuthRedirector = ({ children }) => {
   const authed = useLoaderData();
-  if (!authed) {
-  
-  }
 
   const { setUser } = useContext(UserContext);
   
@@ -43,6 +41,11 @@ function App() {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/projects",
+          element: <AuthRedirector><Projects /></AuthRedirector>,
+          loader: checkAuth, 
         },
       ])} 
       />
