@@ -5,5 +5,9 @@ export default {
         Logout: '/logout',
         Register: '/register',
         CheckAuth: '/checkAuth',
-    }, 
+    },
+    Repo: {
+        Base: '/repo',
+        CloneRepo: '/cloneRepo',
+    }
 }
