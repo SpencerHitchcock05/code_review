@@ -11,7 +11,7 @@ export const useGitHook = () => {
     // data : {url: string}
     const cloneRepo = async (data) => {
         try {
-            const response = await axios.get(`${apiUrl}${paths.Repo.Base}${paths.Repo.CloneRepo}`, data, { withCredentials: true });
+            const response = await axios.post(`${apiUrl}${paths.Repo.Base}${paths.Repo.CloneRepo}`, data, { withCredentials: true });
             return response.data;
         } catch (error) {
             return {error: error.status};

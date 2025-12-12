@@ -3,6 +3,6 @@ import * as controller from './repo.controller.js';
 
 const router = Router();
 
-router.route('/cloneRepo').get(controller.cloneRepo);
+router.route('/cloneRepo').post(controller.cloneRepo);
 
 export default router;
