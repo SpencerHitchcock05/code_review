@@ -51,7 +51,6 @@ export const useAuthHook = () => {
             const response = await axios.post(`${apiUrl}${paths.Users.Base}${paths.Users.Logout}`, null, { withCredentials: true });
             if (response.status == 200) {
                 setUser(null)
-                console.log("YAYA")
             }
         } catch (error) {
             console.error("Error logging out", error)
