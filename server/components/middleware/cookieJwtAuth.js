@@ -6,7 +6,6 @@ dotenv.config();
 export const cookieJwtAuth = (req, res, next) => {
     const token = res.cookies.token;
     try {
-        console.log("authing")
         const user = jwt.verify(token, process.env.JWT_SECRET)
         req.user = user;
         next();
